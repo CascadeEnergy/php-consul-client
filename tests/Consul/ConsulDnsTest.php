@@ -1,8 +1,8 @@
 <?php
 
-namespace Cascade\Tests\ServiceDiscovery\Consul;
+namespace CascadeEnergy\Tests\ServiceDiscovery\Consul;
 
-use Cascade\ServiceDiscovery\Consul\ConsulDns;
+use CascadeEnergy\ServiceDiscovery\Consul\ConsulDns;
 
 class ConsulDnsTest extends \PHPUnit_Framework_TestCase
 {

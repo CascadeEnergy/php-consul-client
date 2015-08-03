@@ -11,12 +11,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "Cascade\\ServiceDiscovery\\": "src"
+      "CascadeEnergy\\ServiceDiscovery\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Cascade\\Tests\\ServiceDiscovery\\": "tests"
+      "CascadeEnergy\\Tests\\ServiceDiscovery\\": "tests"
     }
   },
   "require-dev": {

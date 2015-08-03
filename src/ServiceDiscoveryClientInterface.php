@@ -1,6 +1,6 @@
 <?php
 
-namespace Cascade\ServiceDiscovery;
+namespace CascadeEnergy\ServiceDiscovery;
 
 interface ServiceDiscoveryClientInterface
 {

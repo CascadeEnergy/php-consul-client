@@ -1,8 +1,8 @@
 <?php
 
-namespace Cascade\ServiceDiscovery\Consul;
+namespace CascadeEnergy\ServiceDiscovery\Consul;
 
-use Cascade\ServiceDiscovery\ServiceDiscoveryClientInterface;
+use CascadeEnergy\ServiceDiscovery\ServiceDiscoveryClientInterface;
 
 class ConsulDns implements ServiceDiscoveryClientInterface
 {
