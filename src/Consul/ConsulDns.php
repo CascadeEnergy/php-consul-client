@@ -13,7 +13,7 @@ class ConsulDns implements ServiceDiscoveryClientInterface
         $this->lookupService = $lookupService;
 
         if (is_null($lookupService)) {
-            $this->lookupService = "dns_check_record";
+            $this->lookupService = "dns_get_record";
         }
     }
 

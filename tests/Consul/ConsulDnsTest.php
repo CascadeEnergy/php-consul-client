@@ -59,6 +59,6 @@ class ConsulDnsTest extends \PHPUnit_Framework_TestCase
     {
         $consulDns = new ConsulDns();
 
-        $this->assertAttributeEquals('dns_check_record', 'lookupService', $consulDns);
+        $this->assertAttributeEquals('dns_get_record', 'lookupService', $consulDns);
     }
 }
