@@ -1,6 +1,4 @@
 language: php
-before_install:
-  - cd app
 install:
   - composer install
 php:
