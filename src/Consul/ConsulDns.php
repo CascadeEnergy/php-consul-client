@@ -25,7 +25,7 @@ class ConsulDns implements ServiceDiscoveryClientInterface
             $dnsEntry = "$version.$dnsEntry";
         }
 
-        $resultList = call_user_func($this->lookupService, $dnsEntry, DNS_SRV + DNS_A);
+        $resultList = call_user_func($this->lookupService, $dnsEntry, DNS_SRV);
 
         if (empty($resultList)) {
             return false;

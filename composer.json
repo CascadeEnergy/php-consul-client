@@ -1,5 +1,5 @@
 {
-  "name": "CascadeEnergy/php-consul-dns-client",
+  "name": "cascade-energy/php-consul-dns-client",
   "description": "DNS-based client for Consul service discovery",
   "minimum-stability": "stable",
   "license": "MIT",
