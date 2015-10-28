@@ -35,8 +35,8 @@ class ConsulDns implements ServiceDiscoveryClientInterface
         $port = '80';
 
         foreach ($resultList as $result) {
-            if (isset($result['ip'])) {
-                $ipAddress = $result['ip'];
+            if (isset($result['host'])) {
+                $ipAddress = $result['host'];
             }
 
             if (isset($result['port'])) {
