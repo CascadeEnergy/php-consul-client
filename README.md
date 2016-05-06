@@ -1,2 +1,2 @@
-# php-consul-dns-client
-DNS-based PHP client for Consul services
+# php-consul-client
+Unified (DNS + API) Consul service discovery client code
