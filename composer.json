@@ -1,6 +1,6 @@
 {
-  "name": "cascade-energy/php-consul-dns-client",
-  "description": "DNS-based client for Consul service discovery",
+  "name": "cascade-energy/php-consul-client",
+  "description": "DNS and API based client for Consul service discovery",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
