@@ -18,7 +18,7 @@ class ConsulDnsTest extends \PHPUnit_Framework_TestCase
     public function testItShouldReturnTheIpAddressFromTheARecordWithADefaultPortIfNoPortIsFound()
     {
         $consulDns = new ConsulDns(function () {
-            return [['ip' => '1.2.3.4']];
+            return [['target' => '1.2.3.4']];
         });
 
         $this->assertEquals('1.2.3.4:80', $consulDns->getServiceAddress('foo', 'bar'));
@@ -27,7 +27,7 @@ class ConsulDnsTest extends \PHPUnit_Framework_TestCase
     public function testItShouldReturnThePortIfOneIsFound()
     {
         $consulDns = new ConsulDns(function () {
-            return [['ip' => '1.2.3.4'], ['port' => 42]];
+            return [['target' => '1.2.3.4'], ['port' => 42]];
         });
 
         $this->assertEquals('1.2.3.4:42', $consulDns->getServiceAddress('foo', 'bar'));
