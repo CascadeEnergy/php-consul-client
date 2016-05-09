@@ -23,6 +23,7 @@
     "phpunit/phpunit": "^4.7"
   },
   "require": {
-    "guzzlehttp/guzzle": "^6.2"
+    "guzzlehttp/guzzle": "^6.2",
+    "cascade-energy/php-service-discovery-client": "^1.0.0"
   }
 }
