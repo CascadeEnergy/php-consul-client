@@ -24,6 +24,7 @@
   },
   "require": {
     "guzzlehttp/guzzle": "^6.2",
-    "cascade-energy/php-service-discovery-client": "^1.0.0"
+    "cascade-energy/php-service-discovery-client": "^1.0.0",
+    "composer/semver": "^1.4"
   }
 }

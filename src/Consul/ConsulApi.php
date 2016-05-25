@@ -4,6 +4,7 @@ namespace CascadeEnergy\ServiceDiscovery\Consul;
 
 use CascadeEnergy\ServiceDiscovery\ServiceDiscoveryClientInterface;
 use GuzzleHttp\Client;
+use Composer\Semver\Semver;
 
 class ConsulApi implements ServiceDiscoveryClientInterface
 {
@@ -23,15 +24,20 @@ class ConsulApi implements ServiceDiscoveryClientInterface
     {
         $url = "{$this->consulUri}/v1/health/service/$serviceName?passing";
 
-        if (!empty($version)) {
-            $url .= "&tag=$version";
-        }
-
         $response = $this->httpClient->get($url);
 
         $data = json_decode(strval($response->getBody()));
 
         if (json_last_error() != JSON_ERROR_NONE || !is_array($data) || count($data) < 1) {
+            return false;
+        }
+
+        if (!empty($version)) {
+            $version = $this->normalizeVersion($version);
+            $data = $this->filterVersions($data, $version);
+        }
+
+        if (count($data) < 1) {
             return false;
         }
 
@@ -41,5 +47,31 @@ class ConsulApi implements ServiceDiscoveryClientInterface
         $port = $service->Service->Port;
 
         return "$ipAddress:$port";
+    }
+    
+    private function filterVersions($serviceList, $targetVersion)
+    {
+        $versionPattern = '/\d+[-\\.]\d+[-\\.]\d+/';
+        $matchingList = [];
+
+        foreach($serviceList as $service) {
+            $tags = $service->Service->Tags;
+
+            foreach ($tags as $tag) {
+                if (preg_match($versionPattern, $tag)) {
+                    $tag = $this->normalizeVersion($tag);
+                    if (Semver::satisfies($tag, $targetVersion)) {
+                        $matchingList[] = $service;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $matchingList;
+    }
+
+    private function normalizeVersion($version) {
+        return str_replace('-', '.', $version);
     }
 }
