@@ -20,6 +20,11 @@ class ConsulApi implements ServiceDiscoveryClientInterface
         $this->consulUri = $consulUri;
     }
 
+    /**
+     * @param $serviceName The name of the service to locate
+     * @param null $version A semver version constraint, or null if no version constraint is required
+     * @return bool|string The IP address and port of a suitable service instance, or false if no services were found
+     */
     public function getServiceAddress($serviceName, $version = null)
     {
         $url = "{$this->consulUri}/v1/health/service/$serviceName?passing";
