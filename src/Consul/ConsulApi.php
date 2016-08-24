@@ -27,7 +27,7 @@ class ConsulApi implements ServiceDiscoveryClientInterface
      */
     public function getServiceAddress($serviceName, $version = null)
     {
-        $url = "http://{$this->consulUri}/v1/health/service/$serviceName?passing";
+        $url = "{$this->consulUri}/v1/health/service/$serviceName?passing";
 
         $response = $this->httpClient->get($url);
 
